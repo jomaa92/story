@@ -1,0 +1,6 @@
+{
+    "powermode.enabled": false,
+    "powermode.presets": "simple-rift",
+    "prettier.arrowParens": "avoid",
+    "prettier.bracketSameLine": true
+}
