@@ -1,0 +1,26 @@
+* {
+  background-color: rgb(113, 113, 113);
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  margin-top: 12%;
+}
+form {
+  color: burlywood;
+  gap: 12px;
+  margin: auto;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+}
+label {
+  font-size: large;
+}
+input {
+  width: 60vw;
+  height: auto;
+}
