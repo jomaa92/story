@@ -1,0 +1,88 @@
+/* 1. Global Reset & Font */
+* {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Body & Layout */
+body {
+  /* تعيين ارتفاع الشاشة الكامل وتوسيط المحتوى */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; /* توسيط أفقي */
+  align-items: center; /* توسيط عمودي */
+  background-color: #f0f4f8; /* خلفية خفيفة ومهدئة */
+  padding: 20px;
+}
+
+/* 3. Container (بطاقة المحتوى الرئيسية) */
+.container {
+  /* جعل المحتوى محصوراً في بطاقة (Card) */
+  width: 100%;
+  max-width: 450px; /* تحديد عرض أقصى للبطاقة */
+  background-color: #ffffff; /* خلفية بيضاء للبطاقة */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  text-align: center;
+}
+
+/* 4. Heading (العنوان H1) */
+h1 {
+  /* لون خلفية هادئ ومناسب للعنوان */
+  background-color: #aeadff; /* لون أزرق-بنفسجي فاتح */
+  color: #333; /* لون نص داكن */
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: inline-block; /* لضمان أن الخلفية تغطي النص فقط */
+}
+
+/* 5. Form & Inputs Styling (جديد) */
+form {
+  display: flex;
+  flex-direction: column; /* ترتيب العناصر عمودياً */
+  gap: 15px; /* مسافة بين العناصر */
+  margin-top: 25px;
+}
+
+input[type='text'] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* حواف مستديرة لتبدو أحدث */
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type='text']:focus {
+  border-color: #aeadff; /* تفعيل اللون البنفسجي عند التركيز */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(174, 173, 255, 0.5); /* ظل خفيف للتركيز */
+}
+
+/* 6. Submit Button Styling (جديد) */
+input[type='submit'] {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #aeadff; /* استخدام لون العنوان */
+  color: #333; /* لون نص داكن */
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+input[type='submit']:hover {
+  background-color: #9b9aed; /* تغميق اللون عند المرور */
+}
+
+input[type='submit']:active {
+  transform: scale(0.98); /* تأثير الضغط */
+}
