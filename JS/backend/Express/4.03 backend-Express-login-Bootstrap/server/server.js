@@ -1,4 +1,3 @@
-import e from 'express';
 import express from 'express';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
