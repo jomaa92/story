@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: rgb(203, 203, 182);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    gap: 12px;
+    padding: 22px;
+    border-radius: 10px;
+    width: 500px;
+    height: 600px;
+    background-color: antiquewhite;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 2. تعديل الحاوية الأساسية للنموذج */
+.form-container {
+    height: 100%;
+    
+}
+
+/* 3. إزالة الارتفاع الثابت من الفورم أو جعله يملأ المساحة */
+form {
+      height: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    border-radius: 8px;
+    /* هذا السطر هو السحر: يوزع العناصر ويترك فراغ في المنتصف ليدفع الزر للأسفل */
+}
+
+#filter {
+   /*  padding: 15px; */
+    /* background-color: rgb(200, 219, 219); */
+    margin-top: 2px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 6px;
+}
+
+.type-container, .participants-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 45%;
+}
+
+.type-container label, .participants-container label {
+    font-weight: bold;
+    color: #333;
+}
+
+select {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+p {
+   
+    color: #555;
+   height: 280px;
+  width: 426px;
+}
+
+.submit-btn {
+    height: 45px;
+  width: 139px;
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+section {
+    height: calc(100% - 80px); /* طرح مساحة العنوان والـ hr */
+}
+button{
+    margin-bottom: 2px;
+}

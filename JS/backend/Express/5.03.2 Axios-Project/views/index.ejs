@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h3>
+            Hello my friend, you will have some fun
+        </h3>
+        <br>
+        <hr>
+        <section>
+            <div class="form-container">
+                <form action="/filter" method="post">
+                    <div id="filter">
+                        <div class="type-container">
+                            <label for="typeSelect">Type:</label>
+                            <select name="type" id="typeSelect">
+                                <option value="busywork">busywork</option>
+                                <option value="b">Option B</option>
+                                <option value="c">Option C</option>
+                                <option value="d">Option D</option>
+                            </select>
+                        </div>
+                        <div class="participants-container">
+                            <label for="participantsSelect">Participants:</label>
+                            <select name="participants" id="participantsSelect">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p>
+                            <% if (data && data.activity) { %>
+                            <%= data.activity %> 
+                            <% } else if (data && data.error) { %>
+                            Error: <%= data.error %>
+                            <% } else { %>
+                            Select your preferences to find a fun activity!
+                            <% } %>
+                                                
+                        
+                            <br>
+                        
+                    </p>
+                    <button type="submit" class="submit-btn">Find Activity</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
