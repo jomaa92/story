@@ -68,7 +68,7 @@ select {
 }
 
 p {
-   
+   margin-top: 8px;
     color: #555;
    height: 280px;
   width: 426px;
@@ -107,4 +107,11 @@ section {
 }
 button{
     margin-bottom: 2px;
+}
+.info{
+   font-size: 13px;
+  color: brown;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
 }

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Activity Finder</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🎉 Fun Activity Finder</h1>
+            <p class="subtitle">Find exciting activities to beat boredom!</p>
+        </header>
+        
+        <main class="main-content">
+            <section class="filter-section">
+                <div class="form-container">
+                    <form action="/filter" method="POST" class="activity-form">
+                        <div class="filter-grid">
+                            <!-- Activity Type Filter -->
+                            <div class="filter-group">
+                                <label for="typeSelect" class="filter-label">Activity Type:</label>
+                                <select name="type" id="typeSelect" class="filter-select" required>
+                                    <option value="" disabled selected>Select a type</option>
+                                    <option value="education">📚 Education</option>
+                                    <option value="recreational">🎮 Recreational</option>
+                                    <option value="social">👥 Social</option>
+                                    <option value="diy">🔨 DIY</option>
+                                    <option value="charity">❤️ Charity</option>
+                                    <option value="cooking">🍳 Cooking</option>
+                                    <option value="relaxation">😌 Relaxation</option>
+                                    <option value="music">🎵 Music</option>
+                                    <option value="busywork">💼 Busywork</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Participants Filter -->
+                            <div class="filter-group">
+                                <label for="participantsSelect" class="filter-label">Number of People:</label>
+                                <select name="participants" id="participantsSelect" class="filter-select" required>
+                                    <option value="" disabled selected>Select number</option>
+                                    <% for(let i = 1; i <= 8; i++) { %>
+                                        <option value="<%= i %>"><%= i %> <%= i === 1 ? 'person' : 'people' %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                🔍 Find Activity
+                            </button>
+                            <a href="/" class="btn btn-secondary">
+                                🎲 Random Activity
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            
+            <section class="result-section">
+                <div class="activity-card">
+                    <!-- Display Error Message -->
+                    <% if (data.error) { %>
+                        <div class="error-message">
+                            <h3>⚠️ Oops! Something went wrong</h3>
+                            <p><%= data.error %></p>
+                            <p>Please try again with different filters.</p>
+                        </div>
+                    <% } %>
+                    
+                    <!-- Display Activity -->
+                    <% if (data.activity && !data.error) { %>
+                        <div class="activity-content">
+                            <h2 class="activity-title">✨ Suggested Activity</h2>
+                            <p class="activity-description"><%= data.activity %></p>
+                            
+                            <div class="activity-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Type:</span>
+                                    <span class="meta-value badge badge-<%= data.type %>">
+                                        <%= data.type %>
+                                    </span>
+                                </div>
+                                
+                                <div class="meta-item">
+                                    <span class="meta-label">Participants:</span>
+                                    <span class="meta-value">
+                                        👤 <%= data.participants %>
+                                    </span>
+                                </div>
+                                
+                                <% if (data.price) { %>
+                                <div class="meta-item">
+                                    <span class="meta-label">Price:</span>
+                                    <span class="meta-value">
+                                        <%= data.price === 0 ? 'Free 🎁' : 
+                                            data.price <= 0.3 ? 'Low 💰' : 
+                                            data.price <= 0.6 ? 'Medium 💵' : 'High 💸' %>
+                                    </span>
+                                </div>
+                                <% } %>
+                                
+                                <% if (data.accessibility) { %>
+                                <div class="meta-item">
+                                    <span class="meta-label">Accessibility:</span>
+                                    <span class="meta-value">
+                                        <%= data.accessibility <= 0.3 ? 'Easy ♿' : 
+                                            data.accessibility <= 0.6 ? 'Moderate ⚠️' : 'Challenging 🏋️' %>
+                                    </span>
+                                </div>
+                                <% } %>
+                            </div>
+                            
+                            <% if (data.link) { %>
+                                <div class="activity-link">
+                                    <a href="<%= data.link %>" target="_blank" class="btn btn-link">
+                                        🔗 Learn More
+                                    </a>
+                                </div>
+                            <% } %>
+                        </div>
+                    <% } %>
+                    
+                    <!-- Initial State -->
+                    <% if (!data.activity && !data.error) { %>
+                        <div class="welcome-message">
+                            <h3>🎯 How to use:</h3>
+                            <ol class="instructions">
+                                <li>Select an activity type from the dropdown</li>
+                                <li>Choose the number of participants</li>
+                                <li>Click "Find Activity" to get suggestions</li>
+                                <li>Or click "Random Activity" for a surprise!</li>
+                            </ol>
+                        </div>
+                    <% } %>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>Powered by <a href="https://www.boredapi.com/" target="_blank">Bored API</a></p>
+            <p class="copyright">© <%= new Date().getFullYear() %> Fun Activity Finder</p>
+        </footer>
+    </div>
+</body>
+</html>

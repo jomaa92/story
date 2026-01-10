@@ -20,19 +20,28 @@
                         <div class="type-container">
                             <label for="typeSelect">Type:</label>
                             <select name="type" id="typeSelect">
+                                <option value="">Random</option>
                                 <option value="busywork">busywork</option>
-                                <option value="b">Option B</option>
-                                <option value="c">Option C</option>
-                                <option value="d">Option D</option>
+                                <option value="recreational">recreational</option>
+                                <option value="social">social</option> 
+                                <option value="charity">charity</option>
+                                <option value="cooking">cooking</option>
+                                <option value="relaxation">relaxation</option>
+                                
                             </select>
                         </div>
                         <div class="participants-container">
                             <label for="participantsSelect">Participants:</label>
                             <select name="participants" id="participantsSelect">
+                                <option value="">Random Number</option>
                                 <option value="1">1 Person</option>
                                 <option value="2">2 People</option>
                                 <option value="3">3 People</option>
                                 <option value="4">4 People</option>
+                                <option value="5">1 Person</option>
+                                <option value="6">2 People</option>
+                                <option value="7">3 People</option>
+                                <option value="8">4 People</option>
                             </select>
                         </div>
                     </div>
@@ -49,6 +58,10 @@
                             <br>
                         
                     </p>
+                    <div class="info">
+                    <span>Type: <%= data.type %></span>
+                    <span>Participants: <%= data.participants %></span>
+                    </div>
                     <button type="submit" class="submit-btn">Find Activity</button>
                 </form>
             </div>
