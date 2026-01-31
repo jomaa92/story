@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "language": "German (Deutsch)",
+    "author": "Sammlung deutscher Witze",
+    "version": "1.0",
+    "creation_date": "2023-11-15",
+    "description": "Eine JSON-Datenbank mit deutschen Witzen und ihren Eigenschaften."
+  },
+  "jokes": [
+    {
+      "id": 1,
+      "category": "Alltag",
+      "text": "Treffen sich zwei Jäger. Beide tot.",
+      "language_level": "A1",
+      "keywords": [
+        "Jäger",
+        "Treffen",
+        "tot"
+      ],
+      "has_punchline": true,
+      "explicit": false,
+      "length_in_words": 5,
+      "popularity_score": 9,
+      "explanation": "Ein klassischer deutscher Wortwitz. Man erwartet einen normalen Witz, aber die Pointe ist, dass beide sofort tot sind (wahrscheinlich durch einen Schuss)."
+    },
+    {
+      "id": 2,
+      "category": "Berufe",
+      "text": "Kommt ein Mann zum Arzt und sagt: 'Herr Doktor, ich habe ein Problem. Immer wenn ich Kaffee trinke, habe ich danach Schmerzen im rechten Auge.' Darauf der Arzt: 'Versuchen Sie mal, den Löffel vorher aus der Tasse zu nehmen.'",
+      "language_level": "B1",
+      "keywords": [
+        "Arzt",
+        "Kaffee",
+        "Auge",
+        "Löffel"
+      ],
+      "has_punchline": true,
+      "explicit": false,
+      "length_in_words": 42,
+      "popularity_score": 8,
+      "explanation": "Der Witz basiert auf der absurden Vorstellung, dass jemand den Löffel im Auge hat, weil er ihn nicht aus der Kaffeetasse genommen hat."
+    },
+    {
+      "id": 3,
+      "category": "Schule",
+      "text": "Fragt der Lehrer: 'Wer kann mir sagen, wo der Amazonas liegt?' Meldet sich der kleine Fritz: 'Bei meinem Papa liegt der Katalog immer im Badezimmer.'",
+      "language_level": "A2",
+      "keywords": [
+        "Lehrer",
+        "Amazonas",
+        "Schule",
+        "Katalog"
+      ],
+      "has_punchline": true,
+      "explicit": false,
+      "length_in_words": 24,
+      "popularity_score": 7,
+      "explanation": "Ein Wortspiel mit 'Amazonas' (der Fluss) und 'Amazon' (der Online-Versandhändler, dessen Kataloge man früher erhielt)."
+    },
+    {
+      "id": 4,
+      "category": "Tiere",
+      "text": "Warum haben Elefanten so große Ohren? Weil sie sonst nicht in den Regenschirm passen.",
+      "language_level": "A1",
+      "keywords": [
+        "Elefant",
+        "Ohren",
+        "Regenschirm"
+      ],
+      "has_punchline": true,
+      "explicit": false,
+      "length_in_words": 13,
+      "popularity_score": 6,
+      "explanation": "Ein typischer Kinderwitz mit einer unsinnigen, aber lustigen Erklärung."
+    },
+    {
+      "id": 5,
+      "category": "Technik",
+      "text": "Wie viele Programmierer braucht man, um eine Glühbirne zu wechseln? Keinen, das ist ein Hardware-Problem.",
+      "language_level": "B1",
+      "keywords": [
+        "Programmierer",
+        "Glühbirne",
+        "Hardware",
+        "Software"
+      ],
+      "has_punchline": true,
+      "explicit": false,
+      "length_in_words": 18,
+      "popularity_score": 8,
+      "explanation": "Ein Insider-Witz aus der IT-Welt, der das typische Denken in 'Hardware- vs. Software-Probleme' aufgreift."
+    },
+    {
+      "id": 6,
+      "category": "Essen",
+      "text": "Was ist grün und steht im Wald? Ein Pickleher.",
+      "language_level": "A2",
+      "keywords": [
+        "Wald",
+        "grün",
+        "Gurke",
+        "Pickleher"
+      ],
+      "has_punchline": true,
+      "explicit": false,
+      "length_in_words": 10,
+      "popularity_score": 5,
+      "explanation": "Ein phonetischer Witz: 'Pickleher' klingt wie 'Pickler' (von Essiggurke) und soll 'Pilzsucher' (von 'Pilze') imitieren. Sehr deutscher Wortspielwitz."
+    },
+    {
+      "id": 7,
+      "category": "Alltag",
+      "text": "Zwei Planeten treffen sich. Sagt der eine: 'Du siehst aber schlecht aus.' Sagt der andere: 'Ja, mir geht's nicht gut. Ich habe Menschen.' Darauf der erste: 'Das geht vorbei.'",
+      "language_level": "B1",
+      "keywords": [
+        "Planeten",
+        "Menschen",
+        "Umwelt",
+        "Krankheit"
+      ],
+      "has_punchline": true,
+      "explicit": false,
+      "length_in_words": 32,
+      "popularity_score": 9,
+      "explanation": "Ein witziger Kommentar zur Umweltbelastung durch den Menschen aus einer kosmischen Perspektive."
+    },
+    {
+      "id": 8,
+      "joke": "هذه نكتة اختبار من Postman 😄"
+    }
+  ],
+  "categories_summary": {
+    "Alltag": 2,
+    "Berufe": 1,
+    "Schule": 1,
+    "Tiere": 1,
+    "Technik": 1,
+    "Essen": 1
+  },
+  "statistics": {
+    "total_jokes": 7,
+    "average_length_in_words": 20,
+    "most_common_language_level": "A2/B1",
+    "jokes_with_explanations": 7,
+    "oldest_joke_id": 1,
+    "newest_joke_id": 7
+  },
+  "usage_notes": {
+    "language_learning_suitable": true,
+    "cultural_notes": "Deutsche Witze basieren oft auf Wortspielen, Doppeldeutigkeiten oder trockenem Humor. Viele setzen Grundwissen über den deutschen Alltag voraus.",
+    "audience": "Erwachsene und Kinder (je nach Kategorie und Explizitheit)",
+    "license": "CC BY-NC 4.0 (nicht-kommerzielle Wiederverwendung erlaubt)"
+  }
+}
