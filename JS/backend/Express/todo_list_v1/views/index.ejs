@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>to do list </title>
+</head>
+<body>
+    <div class="input-tasks">
+        <div class="item-input">
+            <form action="/add" method="POST">
+                <input type="text" name="title" placeholder="title">
+                <input type="text" name="description" placeholder="description">
+                <select name="priority" id="select-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="hight">Hight</option>
+                </select>
+                <button class="but-add" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <h1>TO DO LIST:</h1>
+
+    <div class="tasks">
+        <% task.forEach(task => { %>
+            <div class="item" style="background-color: <%=task.status.trim()==="pending" ? 'rgb(195, 195, 195, 0.628)':'rgb(170, 218, 93)'%>;">
+                <p><strong>ID:</strong> <br> <%= task.id %></p>
+                <p><strong>Title:</strong> <br> <%= task.title.trim() %></p>
+                <p><strong>Description:</strong> <br> <%= task.description %></p>
+                <p><strong>Priority:</strong> <br> <%= task.priority.trim() %></p>
+                <p>
+                    <strong>Status:</strong> 
+                        <br>
+                        <span style="color: <%= task.status.trim() === 'done' ? 'green' : 'red' %>">
+                            <%= task.status.trim() %>
+                        </span>
+                </p>
+                <div class="but">
+                    <form action="/delete/<%= task.id %>" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form action="/done/<%= task.id %>" method="POST">
+                        <button class="but-status" type="submit"><%= task.status.trim()==='pending' ? 'done':'pending' %></button>
+                    </form>
+                </div>
+
+            </div>
+
+        <% }); %>
+    </div>
+    
+</body>
+</html>

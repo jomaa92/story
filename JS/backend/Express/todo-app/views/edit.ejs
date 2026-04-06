@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تعديل المهمة</title>
+</head>
+<body>
+
+<h1>تعديل المهمة</h1>
+
+<form action="/edit/<%= task.id %>" method="POST">
+  <input type="text" name="title" value="<%= task.title %>" required>
+  
+  <input type="text" name="description" value="<%= task.description %>">
+
+  <select name="priority">
+    <option value="منخفضة" <%= task.priority === 'منخفضة' ? 'selected' : '' %>>منخفضة</option>
+    <option value="متوسطة" <%= task.priority === 'متوسطة' ? 'selected' : '' %>>متوسطة</option>
+    <option value="عالية" <%= task.priority === 'عالية' ? 'selected' : '' %>>عالية</option>
+  </select>
+
+  <input type="date" name="due_date" value="<%= task.due_date ? task.due_date.toISOString().split('T')[0] : '' %>">
+
+  <button type="submit">حفظ التعديل</button>
+</form>
+
+<a href="/">رجوع</a>
+
+</body>
+</html>

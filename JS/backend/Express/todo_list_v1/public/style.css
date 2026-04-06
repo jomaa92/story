@@ -1,0 +1,98 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+/* container */
+body {
+    display: flex;
+    flex-direction: column;   /* العناصر تصطف عموديًا */
+  /*   justify-content: center;  */ /* توسيط عمودي */
+    align-items: center;      /* توسيط أفقي */
+    height: 100vh;
+    width: 100vw;             /* يفضل 100vw للعرض الكامل */
+    margin: 0;                /* إزالة أي هوامش افتراضية */
+    gap: 12px;
+}
+.input-tasks{
+    display: flex;
+    justify-content: center;   /* توسيط أفقي */
+    align-items: end;       /* توسيط عمودي */
+    width: 100%;
+    height: 20%;
+    background-color: rgb(80, 186, 151);
+}
+.item-input{
+    border-style: none;
+    border-radius: 12px 12px 0 0 ;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+   /*  align-items:center; */
+    background-color: rgb(145, 19, 255);
+    /* width: 70vw; */
+   /*  height: 55px; */
+}
+input,select{
+    
+    font-size: 18px;
+    font-family:sans-serif;
+    height: 90%;
+    padding: 0 10px;
+  /*   border-color: rgb(30, 147, 210); */
+    border-style: none;
+    border-radius: 5px;
+}
+/* select{
+    height: 90%;
+    border-style: none;
+    border-radius: 5px;
+} */
+.tasks{
+    
+   gap: 22px;
+   display: flex;
+   flex-direction: column; 
+   justify-content: center;
+   align-items: center;
+}
+.item {
+    gap: 22px;
+    width: 100%;
+    padding: 18px;
+    background-color: rgb(170, 218, 93);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;   /* توسيط عمودي */
+    justify-content: space-between;
+   /*  align-items: center;   */     /* توسيط أفقي */
+}
+
+button{
+    
+    cursor: pointer;
+    padding: 12px;
+    border-style: none;
+    border-radius: 14%;
+    background-color: coral;
+}
+
+button:hover{
+    background-color: rgb(209, 247, 159);
+    
+}
+.but{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.but-status{
+    cursor: pointer;
+    padding: 12px;
+    border-style: none;
+    border-radius: 14%;
+    background-color: rgb(165, 194, 252);
+}
+p{
+   width:  min-content;
+}

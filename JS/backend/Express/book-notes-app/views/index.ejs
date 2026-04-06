@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Notes</title>
+  
+</head>
+<body>
+  <h2>Add New Book</h2>
+
+    <form action="/add" method="POST">
+            <input type="text" name="isbn" placeholder="ISBN (for book cover)"  />
+            <input type="text" name="title" placeholder="Title" />
+            <input type="text" name="author" placeholder="Author" />
+            <input type="number" name="rating" placeholder="Rating (1-5)" min="1" max="5" />
+            <input type="date" name="date_read" />
+        <br>
+        <br>
+            <textarea name="review" placeholder="Write your review"></textarea>
+        <br>
+        <br>
+            <button type="submit">Add Book</button>
+    </form>
+
+    <hr>
+
+
+  </form>
+
+  <h3>Sort By:</h3>
+    <a href="/?sort=rating">Rating</a> |
+    <a href="/?sort=date">Date</a> |
+    <a href="/?sort=title">Title</a> |
+    <a href="/">Default</a>
+
+    <hr>
+
+    
+    <form method="GET" action="/">
+      <input 
+        type="text" 
+        id="searchInput" 
+        name="search"
+        value="<%= search ? search : '' %>" 
+        placeholder="Search books..." />
+    
+       
+      <button type="submit">Search</button>
+      
+      <div id="results"></div>
+      </form>
+
+  <hr>
+
+  <h1>My Books 📚</h1>
+
+  <% books.forEach(book => { %>
+  <div style="margin-bottom:20px;">
+    <% if (book.isbn) { %>
+    <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn %>-M.jpg" alt="Book Cover">
+    <% } %>
+    <h3><%= book.title %></h3>
+    <p>Author: <%= book.author %></p>
+    <p>Rating: <%= book.rating %></p>
+    <p>Review: <%= book.review %></p>
+
+    <form action="/delete/<%= book.id %>" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+    
+    <form action="/edit/<%= book.id %>" method="GET">
+        <button type="submit">Edit</button>
+    </form>
+    <hr>
+  </div>
+<% }) %>
+
+
+<script src="/js/search.js"></script>
+</body>
+</html>

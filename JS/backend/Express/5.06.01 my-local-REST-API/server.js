@@ -13,37 +13,43 @@ import ejs from 'ejs';
 const app = express();
 const PORT = 3000;
 
+/////////////////////////////////////////////////////////////
 // Middleware to parse JSON bodies
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 /* console.log(__dirname); */
 const DATA_FILE = path.join(__dirname, 'jokes.json');
 /* console.log(DATA_FILE); */
-
+/////////////////////////////////////////////////////////////
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Read data from JSON file
+/////////////////////////////////////////////////////////////
 function readData() {
     try {
-    const  data = fs.readFileSync(DATA_FILE, 'utf-8');
-    return JSON.parse(data);        
-}
+        const  data = fs.readFileSync(DATA_FILE, 'utf-8');
+        return JSON.parse(data);        
+    }
     catch (error) {
         console.error('Error reading data:', error);
         return [];
     }
 };
 /* console.log(readData()); */
+/////////////////////////////////////////////////////////////
 
 // Get all items
+/////////////////////////////////////////////////////////////
 app.get('/jokes', (req, res) => {
     const data = readData();
     res.json(data.jokes);
 });
+/////////////////////////////////////////////////////////////
 
 // Get item by ID
+/////////////////////////////////////////////////////////////
 app.get('/jokes/:id', (req, res) => {
      const datas = readData();
     const jokes = datas.jokes;
@@ -54,7 +60,9 @@ app.get('/jokes/:id', (req, res) => {
         res.status(404).json({ message: 'Joke not found' });
     }
 });
+/////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////
 app.post('/jokes', (req, res) => {
     const datas = readData();
     const jokes = datas.jokes;
@@ -65,10 +73,12 @@ app.post('/jokes', (req, res) => {
     jokes.push(newJoke);
     fs.writeFileSync(DATA_FILE, JSON.stringify(datas, null, 2));
     res.status(201).json(newJoke);
-}); 
+});
+/////////////////////////////////////////////////////////////
 
 
-// Start the server 
+// Start the server
+/////////////////////////////////////////////////////////////
 app.get('/jokes/filter/:categorys', (req, res) => {
     const datas = readData();
     const jokes = datas.jokes;
@@ -76,7 +86,9 @@ app.get('/jokes/filter/:categorys', (req, res) => {
     const filteredJokes = jokes.filter(j => j.joke.toLowerCase().includes(category));
     res.json(filteredJokes);
 })
+/////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////
 app.delete('/jokes/:id', (req, res) => {
     const datas = readData();
     const jokes = datas.jokes;
@@ -89,7 +101,9 @@ app.delete('/jokes/:id', (req, res) => {
         res.status(404).json({ message: 'Joke not found' });
     }      
 });
+/////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////
 app.put('/jokes/:id', (req, res) => {
     const datas = readData();
     const jokes = datas.jokes;
@@ -102,7 +116,9 @@ app.put('/jokes/:id', (req, res) => {
         res.status(404).json({ message: 'Joke not found' });
     }
 });
+/////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////
 app.patch('/jokes/:id', (req, res) => {
     const datas = readData();
     const jokes = datas.jokes;
@@ -118,8 +134,10 @@ app.patch('/jokes/:id', (req, res) => {
         res.status(404).json({ message: 'Joke not found' });
     }
 }); 
+/////////////////////////////////////////////////////////////
 
-
+/////////////////////////////////////////////////////////////
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+/////////////////////////////////////////////////////////////

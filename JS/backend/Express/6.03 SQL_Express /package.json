@@ -1,0 +1,18 @@
+{
+  "name": "6.03-sql_express-",
+  "version": "1.0.0",
+  "description": "هذا المشروع بسيط جدًا والغرض منه التعلم فقط.",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11",
+    "pg": "^8.18.0"
+  }
+}
