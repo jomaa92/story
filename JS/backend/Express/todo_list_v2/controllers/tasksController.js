@@ -53,7 +53,7 @@ export const createTask  = async(req, res )=>{
     try {
         // أخذ البيانات من الفورم
         const {title, description, priority} = req.body
-        console.log(req.body[0])
+        
         // إدخال البيانات في قاعدة البيانات
         await pool.query(
             'INSERT INTO tasks(title, description, priority) VALUES($1, $2, $3)',
@@ -96,23 +96,19 @@ export const changeStatus  = async (req, res) => {
 }
 
 //UPDATE TASK
-/* export const updateTask  = async(req, res )=>{
+export const updateTask = async (req, res) => {
+    try {
+        const id = req.params.id; // 
+        const { title, description, priority } = req.body;
 
-    try 
-        // أخذ البيانات من الفورم
-        const {title, description, priority} = req.body
-
-        // إدخال البيانات في قاعدة البيانات
         await pool.query(
-            'INSERT INTO tasks(title, description, priority) VALUES($1, $2, $3)',
-            [title, description, priority]
-        )
+            'UPDATE tasks SET title=$1, description=$2, priority=$3 WHERE id=$4',
+            [title, description, priority, id]
+        );
 
-        // الرجوع للصفحة الرئيسية
-        res.redirect("/")
-
+        res.redirect('/');
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
-} */
+};
 

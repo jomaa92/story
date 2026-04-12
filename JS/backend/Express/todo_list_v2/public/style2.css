@@ -1,0 +1,151 @@
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: sans-serif;
+    background-color: #f5f7fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Top Input Section */
+.input-tasks {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #50ba97, #d05353);
+    display: flex;
+    justify-content: center;
+}
+
+/* Input Box */
+.item-input {
+    background-color: white;
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Inputs */
+input, select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #3498db;
+}
+
+/* Add Button */
+.but-add {
+    background-color: #2ecc71;
+    color: white;
+}
+
+/* Tasks Container */
+.tasks {
+    width: 60%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Each Task */
+.item {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    background-color: white;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.2s ease;
+}
+
+/* Hover Effect */
+.item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Text */
+p {
+    font-size: 14px;
+}
+
+/* Buttons container */
+.but {
+    display: flex;
+    gap: 8px;
+}
+
+/* Base button */
+button {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 13px;
+    color: white;
+    transition: 0.2s;
+}
+
+/* Hover */
+button:hover {
+    opacity: 0.85;
+}
+
+/* Specific buttons */
+button[formaction*="delete"] {
+    background-color: #e74c3c;
+}
+
+.but-status {
+    background-color: #3498db;
+}
+
+.but-edit {
+    background-color: #2ecc71;
+}
+
+.save-btn {
+    background-color: #f39c12;
+}
+
+/* Edit Inputs */
+.edit {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tasks {
+        width: 90%;
+    }
+
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .but {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

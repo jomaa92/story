@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style2.css">
     <title>to do list </title>
 </head>
 <body>
+    
     <div class="input-tasks">
         <div class="item-input">
             <form action="/add" method="POST">
@@ -26,31 +27,133 @@
 
     <div class="tasks">
         <% task.forEach(task => { %>
-            <div class="item" style="background-color: <%=task.status.trim()==="pending" ? 'rgb(195, 195, 195, 0.628)':'rgb(170, 218, 93)'%>;">
-                <p><strong>ID:</strong> <br> <%= task.id %></p>
-                <p><strong>Title:</strong> <br> <%= task.title.trim() %></p>
-                <p><strong>Description:</strong> <br> <%= task.description %></p>
-                <p><strong>Priority:</strong> <br> <%= task.priority.trim() %></p>
-                <p>
-                    <strong>Status:</strong> 
-                        <br>
+            <form action="/edit/<%= task.id %>" method="POST">
+
+                <div class="item" style="background-color: <%=task.status.trim()==="pending" ? 'rgb(195, 195, 195, 0.628)':'rgb(170, 218, 93)'%>;">
+                    
+                    <p><strong>ID:</strong><br> <%= task.id %></p>
+
+                    <p class="view title">
+                        <strong>Title:</strong>
+                        <br><span><%= task.title %></span>
+                    </p>
+
+                    <!-- |||||||||||||||||||||||||||||||||||||||||||| -->
+                    <input class="edit title-input" name="title" type="text"
+                        value="<%= task.title %>" style="display:none;">
+
+                    <p class="view desc">
+                        <strong>Description:</strong><br>
+                        <span><%= task.description %></span>
+                    </p>
+
+                    <!-- |||||||||||||||||||||||||||||||||||||||||||| -->
+                    <input class="edit desc-input" name="description" type="text"
+                        value="<%= task.description %>" style="display:none;">
+                
+                    <p><strong>Priority:</strong><br> <%= task.priority.trim() %></p>
+
+                    <select name="priority" class="edit" style="display:none;">
+                        <option value="low" <%= task.priority.trim()==='low' ? 'selected' : '' %>>Low</option>
+                        <option value="medium" <%= task.priority.trim()==='medium' ? 'selected' : '' %>>Medium</option>
+                        <option value="high" <%= task.priority.trim()==='high' ? 'selected' : '' %>>High</option>
+                    </select>
+                    <p>
+                        <strong>Status:</strong><br>
                         <span style="color: <%= task.status.trim() === 'done' ? 'green' : 'red' %>">
                             <%= task.status.trim() %>
                         </span>
-                </p>
-                <div class="but">
-                    <form action="/delete/<%= task.id %>" method="POST">
-                        <button type="submit">Delete</button>
-                    </form>
-                    <form action="/done/<%= task.id %>" method="POST">
-                        <button class="but-status" type="submit"><%= task.status.trim()==='pending' ? 'done':'pending' %></button>
-                    </form>
+                    </p>
+
+                    <div class="but">
+                        <!-- Delete -->
+                       <!--  <form action="/delete/<%= task.id %>" method="POST">
+                        </form> -->
+                        <button type="submit" formaction="/delete/<%= task.id %>">Delete</button>
+
+                        <!-- Status -->
+                        <!-- <form action="/done/<%= task.id %>" method="POST">
+                        </form> -->
+                        <button class="but-status" type="submit" formaction="/done/<%= task.id %> " >
+                            <%= task.status.trim()==='pending' ? 'done':'pending' %>
+                        </button>
+
+                        <!-- ✏️ مهم -->
+                        <button type="button" class="but-edit">Edit</button>
+
+                        <!-- 💾 Save -->
+                        <button type="submit" class="save-btn" style="display:none;">Save</button>
+                    </div>
+
                 </div>
 
-            </div>
-
+            </form>
         <% }); %>
     </div>
     
+
+<script>
+let currentItem = null;
+
+const editButtons = document.querySelectorAll('.but-edit');
+
+editButtons.forEach(button => {
+    button.addEventListener('click', () => {
+
+        const item = button.closest('.item');
+        /*  console.log(item) */
+        // 🔁 إذا في عنصر مفتوح من قبل → رجعه طبيعي
+        if (currentItem && currentItem !== item) {
+            resetItem(currentItem);
+        }
+
+        // ✏️ تفعيل هذا العنصر
+        item.querySelectorAll('.view').forEach(el => {
+            el.style.display = 'none';
+        });
+
+        item.querySelectorAll('.edit').forEach(el => {
+            el.style.display = 'block';
+        });
+
+        // إخفاء Edit
+        button.style.display = 'none';
+
+        // إظهار Save
+        const saveBtn = item.querySelector('.save-btn');
+        saveBtn.style.display = 'inline-block';
+
+       /*  saveBtn.addEventListener('click',()=>{
+          
+           const title = item.querySelector('.title-input').value
+           console.log(title)
+           const description = item.querySelector('.desc-input').value
+            console.log(description)
+            resetItem(item)
+
+        }); */
+
+        // خزّن العنصر الحالي
+        currentItem = item;
+    });
+});
+
+// 🧹 دالة ترجع العنصر لحالته الطبيعية
+function resetItem(item) {
+    item.querySelectorAll('.view').forEach(el => {
+        el.style.display = 'block';
+    });
+
+    item.querySelectorAll('.edit').forEach(el => {
+        el.style.display = 'none';
+    });
+
+    const editBtn = item.querySelector('.but-edit');
+    const saveBtn = item.querySelector('.save-btn');
+
+    editBtn.style.display = 'inline-block';
+    saveBtn.style.display = 'none';
+}
+</script>
 </body>
 </html>

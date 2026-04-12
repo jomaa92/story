@@ -1,6 +1,6 @@
 // استيراد المكتبات
 import express from 'express';      // إطار عمل لإنشاء السيرفر
-import tasksRoutes from './routers/tasksRoutes.js'
+import tasksRoutes from './routes/tasksRoutes.js'
 
 // إنشاء التطبيق
 const app = express();

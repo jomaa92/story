@@ -5,43 +5,46 @@
 }
 /* container */
 body {
-    display: flex;
-    flex-direction: column;   /* العناصر تصطف عموديًا */
-  /*   justify-content: center;  */ /* توسيط عمودي */
-    align-items: center;      /* توسيط أفقي */
+    margin: 0;                /* إزالة أي هوامش افتراضية */
     height: 100vh;
     width: 100vw;             /* يفضل 100vw للعرض الكامل */
-    margin: 0;                /* إزالة أي هوامش افتراضية */
+    display: flex;
+    flex-direction: column;   /* العناصر تصطف عموديًا */
+    align-items: center;      /* توسيط أفقي */
     gap: 12px;
+
+  /*   justify-content: center;  */ /* توسيط عمودي */
 }
 .input-tasks{
-    display: flex;
-    justify-content: center;   /* توسيط أفقي */
-    align-items: end;       /* توسيط عمودي */
     width: 100%;
     height: 20%;
     background-color: rgb(80, 186, 151);
+    display: flex;
+    justify-content: center;   /* توسيط أفقي */
+    align-items: end;       /* توسيط عمودي */
 }
 .item-input{
+    padding: 1rem;
+    background-color: rgb(145, 19, 255);
     border-style: none;
     border-radius: 12px 12px 0 0 ;
-    padding: 1rem;
     display: flex;
     justify-content: space-between;
-   /*  align-items:center; */
-    background-color: rgb(145, 19, 255);
+    
+    /*  align-items:center; */
     /* width: 70vw; */
-   /*  height: 55px; */
+    /*  height: 55px; */
 }
 input,select{
     
-    font-size: 18px;
-    font-family:sans-serif;
     height: 90%;
     padding: 0 10px;
-  /*   border-color: rgb(30, 147, 210); */
+    font-size: 18px;
+    font-family:sans-serif;
     border-style: none;
     border-radius: 5px;
+    
+    /*   border-color: rgb(30, 147, 210); */
 }
 /* select{
     height: 90%;
@@ -57,7 +60,6 @@ input,select{
    align-items: center;
 }
 .item {
-    gap: 22px;
     width: 100%;
     padding: 18px;
     background-color: rgb(170, 218, 93);
@@ -65,7 +67,9 @@ input,select{
     display: flex;
     justify-content: center;   /* توسيط عمودي */
     justify-content: space-between;
-   /*  align-items: center;   */     /* توسيط أفقي */
+    gap: 22px;
+   
+    /*  align-items: center;   */     /* توسيط أفقي */
 }
 
 button{
@@ -74,11 +78,11 @@ button{
     padding: 12px;
     border-style: none;
     border-radius: 14%;
-    background-color: coral;
+    background-color: rgb(228, 0, 0);
 }
 
 button:hover{
-    background-color: rgb(209, 247, 159);
+    background-color: rgb(255, 131, 78);
     
 }
 .but{
@@ -93,6 +97,25 @@ button:hover{
     border-radius: 14%;
     background-color: rgb(165, 194, 252);
 }
+.but-edit{
+    background-color: rgb(20, 220, 163);
+}
 p{
    width:  min-content;
+}
+.box-edit{
+   /*  width: 833px;
+    height: 533px;
+    position: fixed;  
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: block;  
+    
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 50, 50);
+    border-radius: 16px; */
 }
