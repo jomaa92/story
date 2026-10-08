@@ -68,9 +68,9 @@ input:focus, select:focus {
     padding: 16px;
     border-radius: 12px;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
-    gap: 16px;
+    gap: 60px;
 
     background-color: white;
 
@@ -91,8 +91,11 @@ p {
 
 /* Buttons container */
 .but {
+    
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
+    margin-left: 42px;
 }
 
 /* Base button */
@@ -117,6 +120,8 @@ button[formaction*="delete"] {
 }
 
 .but-status {
+    width: 74px;
+
     background-color: #3498db;
 }
 
@@ -132,7 +137,14 @@ button[formaction*="delete"] {
 .edit {
     width: 100%;
 }
-
+.info-data{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    gap: 12px;
+}
 /* Responsive */
 @media (max-width: 768px) {
     .tasks {
@@ -146,6 +158,6 @@ button[formaction*="delete"] {
 
     .but {
         width: 100%;
-        justify-content: space-between;
+        margin-left: 0px;
     }
 }

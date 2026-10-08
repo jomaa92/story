@@ -31,7 +31,8 @@
 
                 <div class="item" style="background-color: <%=task.status.trim()==="pending" ? 'rgb(195, 195, 195, 0.628)':'rgb(170, 218, 93)'%>;">
                     
-                    <p><strong>ID:</strong><br> <%= task.id %></p>
+                    <div class="info-data">
+                        <p><strong>ID:</strong><br> <%= task.id %></p>
 
                     <p class="view title">
                         <strong>Title:</strong>
@@ -64,6 +65,7 @@
                             <%= task.status.trim() %>
                         </span>
                     </p>
+                    </div>
 
                     <div class="but">
                         <!-- Delete -->
