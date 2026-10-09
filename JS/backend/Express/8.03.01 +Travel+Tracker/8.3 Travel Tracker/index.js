@@ -1,3 +1,4 @@
+import"dotenv/config"
 import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
@@ -6,11 +7,11 @@ const app = express();
 const port = 3000;
 
 const db = new pg.Client({
-    user: "app_user",
-    host: "localhost",
-    database: "postgres",
-    password: "yarevS1992@",
-    port: 5432,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password :process.env.DB_PASSWORD,
+    port: process.env.DB_PORT
 });
 
 // تأخير تعريف دالة الاتصال حتى يتم التعامل مع الأخطاء بشكل أفضل

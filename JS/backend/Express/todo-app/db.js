@@ -2,11 +2,11 @@ import pkg from 'pg';
 const { Pool } = pkg;
 
 const pool = new Pool({
-  user: 'postgres',      // غيّرها حسب اسم المستخدم لديك
-  host: 'localhost',
-  database: 'todo_db',   // قاعدة البيانات التي أنشأناها
-  password: '1234',  // ضع كلمة المرور الخاصة بك
-  port: 5432,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database:process.env.DB_NAME,
+    password :process.env.DB_PASSWORD,
+    port:process.env.DB_PORT,
 });
 
 export default pool;
